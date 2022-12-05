@@ -1,0 +1,40 @@
+{
+    "name": "24feedback-backend",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "dev": "ts-node-dev -r tsconfig-paths/register ./index.ts",
+        "test": "ts-node-dev ./src/helpers/readRoutes.ts",
+        "build": "tsc",
+        "start": "node -r ./tsconfig-paths-bootstrap.js dist/index.js"
+    },
+    "dependencies": {
+        "@fastify/cors": "^8.2.0",
+        "bcrypt": "^5.1.0",
+        "fastify": "^4.9.2",
+        "fastify-cors": "^6.1.0",
+        "joi": "^17.7.0",
+        "pg": "^8.8.0",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.24.0",
+        "typeorm": "^0.3.10",
+        "typeorm-naming-strategies": "^4.1.0"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
+        "@types/node": "^18.8.3",
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.39.0",
+        "dotenv": "^16.0.3",
+        "eslint": "^8.0.1",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-config-standard-with-typescript": "^23.0.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0",
+        "eslint-plugin-promise": "^6.0.0",
+        "ts-node-dev": "^2.0.0",
+        "tsconfig-paths": "^4.1.0",
+        "typescript": "*"
+    }
+}
