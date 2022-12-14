@@ -10,8 +10,6 @@ RUN yarn install --frozen-lockfile
 
 COPY . .
 
-COPY .env .
-
 RUN yarn build
 
 FROM node:slim
