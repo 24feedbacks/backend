@@ -9,4 +9,5 @@ export const postgresConnection = new DataSource({
     entities: ["src/entities/*.ts"],
     synchronize: true,
     namingStrategy: new SnakeNamingStrategy(),
+    
 });
