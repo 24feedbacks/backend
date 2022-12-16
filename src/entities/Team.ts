@@ -30,7 +30,7 @@ export default class Team {
     @JoinColumn()
     mananger: User;
 
-    @OneToMany(() => User, user => user.team)
+    @OneToMany(() => User, user => user.team, {cascade: ["remove", "update"]})
     colaborators: User[];
 
     @ManyToOne(() => Sector, (sector) => sector.teams)
