@@ -1,11 +1,11 @@
 import {
-    PrimaryGeneratedColumn,
-    Column,
-    CreateDateColumn,
-    UpdateDateColumn,
-    Entity,
-    ManyToOne,
-    OneToMany,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  Entity,
+  ManyToOne,
+  OneToMany,
 } from "typeorm";
 import Category from "./Category";
 import Goal from "./Goal";
@@ -14,31 +14,34 @@ import Team from "./Team";
 
 @Entity()
 export default class User {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column()
-    email: string;
+  @Column()
+  email: string;
 
-    @Column()
-    password: string;
+  @Column()
+  password: string;
 
-    @CreateDateColumn()
-    created_at: Date;
+  @CreateDateColumn()
+  created_at: Date;
 
-    @UpdateDateColumn()
-    updated_at: Date;
+  @UpdateDateColumn()
+  updated_at: Date;
 
-    @ManyToOne(() => Team, (team) => team.colaborators)
-    team: Team;
+  @ManyToOne(() => Team, (team) => team.colaborators, {
+    nullable: true,
+  })
+  team: Team;
 
-    @OneToMany(() => Goal, (goal) => goal.user)
-    goals: Goal[]
+  @OneToMany(() => Goal, (goal) => goal.user, { cascade: ["remove", "update"] })
+  goals: Goal[];
 
-    @ManyToOne(() => Category, (category) => category.users)
-    category: Category;
-
+  @ManyToOne(() => Category, (category) => category.users, {
+    cascade: ["remove", "update"],
+  })
+  category: Category;
 }
